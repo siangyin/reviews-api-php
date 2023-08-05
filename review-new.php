@@ -17,9 +17,9 @@ if (empty($userId) || empty($restaurantId) || empty($comment)) {
     echo json_encode($response);
 } else {
   // has all values
-  // INSERT INTO `r_reviews`(`reviewId`, `userId`, `restaurantId`, `comments`, `date`) 
+  // INSERT INTO `r_reviews`(`reviewId`, `userId`, `restaurantId`, `comment`, `date`) 
 
-  $sql = "INSERT INTO r_reviews (userId, restaurantId, comments) VALUES ('$userId', '$restaurantId', '$comment')";
+  $sql = "INSERT INTO r_reviews (userId, restaurantId, comment) VALUES ('$userId', '$restaurantId', '$comment')";
   $result = mysqli_query($db->myconn, $sql);
   if ($result){
 

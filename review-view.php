@@ -11,7 +11,7 @@ $post_data = json_decode($req_body, true);
 $reviewId = isset($post_data['reviewId']) ? $post_data['reviewId'] : '';
 $comment = isset($post_data['comment']) ? $post_data['comment'] : '';
 
-<?php
+
 // Assuming you have established a connection to your database already
 
 // Sanitize the input to prevent SQL injection
@@ -30,12 +30,12 @@ if (mysqli_num_rows($result) > 0) {
     $response = array(
         "status" => 1,
         "message" => "Review details list successful.",
-        "restaurantName" => $row["t.name"], // Remove (int) cast if "name" is a string
-        "userName" => $row["u.name"], // Remove (int) cast if "name" is a string
+        "restaurantName" => $row["name"], // Remove (int) cast if "name" is a string
+        "username" => $row["username"], // Remove (int) cast if "name" is a string
         "comment" => $row["comment"],
         "date" => $row["date"] // Assuming "date" is stored as a string or timestamp
     );
-    echo json_encode($response);
+    echo json_encode($row);
 } else {
     $response = array(
         "status" => 0,

@@ -7,12 +7,12 @@ $db->connect();
 $req_body = file_get_contents('php://input');
 $post_data = json_decode($req_body, true);
 
-$name = isset($post_data['name']) ? $post_data['name'] : '';
+$username = isset($post_data['username']) ? $post_data['username'] : '';
 $email = isset($post_data['email']) ? $post_data['email'] : '';
 $password = isset($post_data['password']) ? $post_data['password'] : '';
 
-if (empty($name) || empty($email) || empty($password)) {
-    $response = array("status" => 0, "message" => "Please provide name, email, and password");
+if (empty($username) || empty($email) || empty($password)) {
+    $response = array("status" => 0, "message" => "Please provide username, email, and password");
     echo json_encode($response);
 } else {
   // Validate email format
@@ -29,7 +29,7 @@ if (empty($name) || empty($email) || empty($password)) {
             echo json_encode($response);
         } else {
           // Create new user account
-            $sql = "INSERT INTO r_users (name, email, password) VALUES ('$name', '$email', '$password')";
+            $sql = "INSERT INTO r_users (username, email, password) VALUES ('$username', '$email', '$password')";
             $result = mysqli_query($db->myconn, $sql);
 
             if ($result) {

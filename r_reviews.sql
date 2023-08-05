@@ -31,7 +31,7 @@ CREATE TABLE `r_reviews` (
   `reviewId` int(5) NOT NULL,
   `userId` int(5) NOT NULL,
   `restaurantId` int(5) NOT NULL,
-  `comments` text NOT NULL,
+  `comment` text NOT NULL,
   `date` date DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -39,7 +39,7 @@ CREATE TABLE `r_reviews` (
 -- Dumping data for table `r_reviews`
 --
 
-INSERT INTO `r_reviews` (`reviewId`, `userId`, `restaurantId`, `comments`, `date`) VALUES
+INSERT INTO `r_reviews` (`reviewId`, `userId`, `restaurantId`, `comment`, `date`) VALUES
 (1, 1, 1, 'Super Good Service.Just love the way the chicken is done It is PERFECT It is crispy on the outside and juicy and tender inside, Best Korean Fried Chicken I ever taste in my life', '2023-08-05');
 
 --

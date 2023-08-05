@@ -16,7 +16,7 @@ CREATE TABLE r_reviews (
   reviewId INT(5) AUTO_INCREMENT PRIMARY KEY,
   userId INT(5) NOT NULL,
   restaurantId INT(5) NOT NULL,
-  comments TEXT NOT NULL,
+  comment TEXT NOT NULL,
   CONSTRAINT FK_user_review FOREIGN KEY(userId) REFERENCES r_users(userId),
   CONSTRAINT FK_restaurant_review FOREIGN KEY(restaurantId) REFERENCES r_restaurants(restaurantId)
 );

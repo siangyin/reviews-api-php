@@ -16,9 +16,9 @@ if (empty($reviewId) || empty($comment)) {
     echo json_encode($response);
 } else {
   // has all values
-  // UPDATE `r_reviews` SET `comments`='[value-4]',`date`='[value-5]' WHERE `reviewId`='[value-1]'
+  // UPDATE `r_reviews` SET `comment`='[value-4]',`date`='[value-5]' WHERE `reviewId`='[value-1]'
 
-  $sql = "UPDATE r_reviews SET comments = '$comment' WHERE reviewId = '$reviewId'";
+  $sql = "UPDATE r_reviews SET comment = '$comment' WHERE reviewId = '$reviewId'";
   $result = mysqli_query($db->myconn, $sql);
   if ($result){
     
