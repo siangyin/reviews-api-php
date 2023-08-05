@@ -11,10 +11,7 @@ $post_data = json_decode($req_body, true);
 $reviewId = isset($post_data['reviewId']) ? $post_data['reviewId'] : '';
 $comment = isset($post_data['comment']) ? $post_data['comment'] : '';
 
-$sql = "SELECT * FROM r_reviews r , r_user u ,r_restaurant t
-WHERE r.userId=u.userId,
-AND r.restaurantId= t.restaurantId,
-AND r.reviewId = '$reviewId'";
+$sql = "SELECT u.name as username, t.name as restaurant,r.comment,r.date FROM r_reviews r , r_users u , r_restaurants t WHERE r.userId=u.userId AND r.restaurantId= t.restaurantId AND r.reviewId = '$reviewId'";
 
   $result = mysqli_query($db->myconn, $sql);
   if (mysqli_num_rows($result) > 0) {
@@ -23,7 +20,7 @@ AND r.reviewId = '$reviewId'";
       $response = array(
           "status" => 1,
           "message" => "review details list successful.",
-          "restaurantName" => (int)$row["t.name"],
+          "restaurantName" => (int)$row["name"],
           "userName" => (int)$row["u.name"],
           "comment" => $row["r.comment"],
           "date" => (int)$row["r.date"],
