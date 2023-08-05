@@ -8,5 +8,4 @@ $db->connect();
 $req_body= file_get_contents('php://input');
 $post_data = json_decode($req_body, true);
 
-
 ?>
