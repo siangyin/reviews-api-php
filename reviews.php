@@ -18,7 +18,10 @@ class Review {
 
 $sql = "SELECT * FROM r_reviews r, r_users u, r_restaurants t 
         WHERE r.userId = u.userId
-        AND r.restaurantId = t.restaurantId";
+        AND r.restaurantId = t.restaurantId
+        AND restaurantId = '$restaurantId'
+        OR userId = '$userId'";
+
 
 $result = mysqli_query($db->myconn, $sql);
 
