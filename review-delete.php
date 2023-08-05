@@ -14,7 +14,7 @@ if (empty($reviewId) ) {
     $response = array("status" => 0, "message" => "Please provide all required detail");
     echo json_encode($response);
 } else {
-    $sql = "DELETE r_reviews WHERE reviewId = '$reviewId'";
+    $sql = "DELETE FROM r_reviews WHERE reviewId = '$reviewId'";
     $result = mysqli_query($db->myconn, $sql);
 
     if ($result){
