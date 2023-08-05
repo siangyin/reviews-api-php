@@ -35,7 +35,7 @@ if (mysqli_num_rows($result) > 0) {
         "comment" => $row["comment"],
         "date" => $row["date"] // Assuming "date" is stored as a string or timestamp
     );
-    echo json_encode($row);
+    echo json_encode($response);
 } else {
     $response = array(
         "status" => 0,
