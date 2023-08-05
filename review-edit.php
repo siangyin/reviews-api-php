@@ -16,13 +16,13 @@ if (empty($reviewId) || empty($comment)) {
     echo json_encode($response);
 } else {
   // has all values
-  // INSERT INTO `r_reviews`(`reviewId`, `reviewId`, `restaurantId`, `comments`, `date`) 
+  // UPDATE `r_reviews` SET `comments`='[value-4]',`date`='[value-5]' WHERE `reviewId`='[value-1]'
 
-  $sql = "INSERT INTO r_reviews (reviewId, restaurantId, comments) VALUES ('$reviewId', '$restaurantId', '$comment')";
+  $sql = "UPDATE r_reviews SET comments = '$comment' WHERE reviewId = '$reviewId'";
   $result = mysqli_query($db->myconn, $sql);
   if ($result){
-
-     $response = array("status" => 1, "message" => "Review added");
+    
+     $response = array("status" => 1, "message" => "Review updated");
     echo json_encode($response);
   } else {
     // request failed
