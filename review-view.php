@@ -41,7 +41,7 @@ if (mysqli_num_rows($result) > 0) {
         "status" => 0,
         "message" => "No review found."
     );
-    echo json_encode($response);
+    echo json_encode($response); //1234
 }
 ?>
 
