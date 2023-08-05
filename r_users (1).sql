@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Aug 05, 2023 at 10:09 AM
+-- Generation Time: Aug 05, 2023 at 11:43 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `r_users` (
   `userId` int(5) NOT NULL,
-  `name` varchar(30) NOT NULL,
+  `username` varchar(30) NOT NULL,
   `email` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
   `createdOn` timestamp NOT NULL DEFAULT current_timestamp()
@@ -39,8 +39,10 @@ CREATE TABLE `r_users` (
 -- Dumping data for table `r_users`
 --
 
-INSERT INTO `r_users` (`userId`, `name`, `email`, `password`, `createdOn`) VALUES
-(1, 'eunwoo', 'eunwoo@gmail.com', 'eunwoo', '2023-08-05 04:55:47');
+INSERT INTO `r_users` (`userId`, `username`, `email`, `password`, `createdOn`) VALUES
+(1, 'eunwoo', 'eunwoo@gmail.com', 'eunwoo', '2023-08-05 04:55:47'),
+(2, 'eunwoo', 'eunwoo2@gmail.com', 'eunwoo', '2023-08-05 08:41:46'),
+(3, 'jojo', 'jojo@gmail.com', 'jojo', '2023-08-05 09:05:05');
 
 --
 -- Indexes for dumped tables
@@ -61,7 +63,7 @@ ALTER TABLE `r_users`
 -- AUTO_INCREMENT for table `r_users`
 --
 ALTER TABLE `r_users`
-  MODIFY `userId` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `userId` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
