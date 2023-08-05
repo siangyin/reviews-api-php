@@ -4,6 +4,10 @@ require_once __DIR__ . "/dbConnect.php";
 $db = new DB_CONNECT();
 $db->connect();
 
+// Get req body raw data JSONObject and convert json to php object
+$req_body= file_get_contents('php://input');
+$post_data = json_decode($req_body, true);
+
 class Review {
     public static function generateReview ($row) {
         return [
@@ -16,11 +20,14 @@ class Review {
     }
 }
 
+$reviewId = isset($post_data['reviewId']) ? $post_data['reviewId'] : '';
+$userId = isset($post_data['userId']) ? $post_data['userId'] : '';
+
 $sql = "SELECT * FROM r_reviews r, r_users u, r_restaurants t 
         WHERE r.userId = u.userId
         AND r.restaurantId = t.restaurantId
-        AND restaurantId = '$restaurantId'
-        OR userId = '$userId'";
+        AND ( r.reviewId = '$reviewId'
+        OR r.userId = '$userId')";
 
 
 $result = mysqli_query($db->myconn, $sql);
