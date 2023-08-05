@@ -8,6 +8,9 @@ $db->connect();
 $req_body= file_get_contents('php://input');
 $post_data = json_decode($req_body, true);
 
+$restaurantId = isset($post_data['restaurantId']) ? $post_data['restaurantId'] : '';
+$userId = isset($post_data['userId']) ? $post_data['userId'] : '';
+
 class Review {
     public static function generateReview ($row) {
         return [
@@ -20,13 +23,10 @@ class Review {
     }
 }
 
-$reviewId = isset($post_data['reviewId']) ? $post_data['reviewId'] : '';
-$userId = isset($post_data['userId']) ? $post_data['userId'] : '';
-
 $sql = "SELECT * FROM r_reviews r, r_users u, r_restaurants t 
         WHERE r.userId = u.userId
         AND r.restaurantId = t.restaurantId
-        AND ( r.reviewId = '$reviewId'
+        AND ( r.restaurantId = '$restaurantId'
         OR r.userId = '$userId')";
 
 
