@@ -7,7 +7,7 @@ $db->connect();
 class Restaurant {
     public static function generateRestaurant ($row) {
         return [
-            "restaurantId " => (int)$row["restaurantId "],
+            "restaurantId " => (int)$row["restaurantId"],
             "name" => $row["name"],
             "photo" => $row["photo"],
             "cat" => $row["category"],
