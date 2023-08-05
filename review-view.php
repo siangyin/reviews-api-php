@@ -33,7 +33,7 @@ if (mysqli_num_rows($result) > 0) {
         "restaurantName" => $row["name"], // Remove (int) cast if "name" is a string
         "username" => $row["username"], // Remove (int) cast if "name" is a string
         "comment" => $row["comment"],
-        "date" => $row["date"] // Assuming "date" is stored as a string or timestamp
+        "createdOn" => $row["createdOn"] // Assuming "date" is stored as a string or timestamp
     );
     echo json_encode($response);
 } else {

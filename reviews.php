@@ -18,7 +18,7 @@ class Review {
             "username" => $row["username"],
             "restaurantName" => $row["name"],
             "comment" => $row["comment"],
-            "date" => $row["date"]
+            "createdOn" => $row["createdOn"]
         ];
     }
 }

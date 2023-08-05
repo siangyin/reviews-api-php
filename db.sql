@@ -1,15 +1,18 @@
 CREATE TABLE r_users (
   userId INT(5) AUTO_INCREMENT PRIMARY KEY,
-  name VARCHAR(30) NOT NULL,
-  email VARCHAR(100) NOT NULL UNIQUE,
+  username VARCHAR(100) NOT NULL,
+  email VARCHAR(200) NOT NULL UNIQUE,
   password VARCHAR(100) NOT NULL,
   createdOn TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE r_restaurants (
   restaurantId INT(5) AUTO_INCREMENT PRIMARY KEY,
-  name VARCHAR(150) NOT NULL,
-  photo TEXT NOT NULL
+  name VARCHAR(300) NOT NULL,
+  photo TEXT NOT NULL,
+  category varchar(255) DEFAULT NULL,
+  description text NOT NULL,
+  openinghours varchar(255) NOT NULL
 );
 
 CREATE TABLE r_reviews (
@@ -17,6 +20,7 @@ CREATE TABLE r_reviews (
   userId INT(5) NOT NULL,
   restaurantId INT(5) NOT NULL,
   comment TEXT NOT NULL,
+  createdOn DATE DEFAULT current_timestamp()
   CONSTRAINT FK_user_review FOREIGN KEY(userId) REFERENCES r_users(userId),
   CONSTRAINT FK_restaurant_review FOREIGN KEY(restaurantId) REFERENCES r_restaurants(restaurantId)
 );
