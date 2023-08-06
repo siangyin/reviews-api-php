@@ -32,7 +32,7 @@ CREATE TABLE `r_reviews` (
   `userId` int(5) NOT NULL,
   `restaurantId` int(5) NOT NULL,
   `comment` text NOT NULL,
-  `createdOn` date DEFAULT current_timestamp()
+  `createdOn` date 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --

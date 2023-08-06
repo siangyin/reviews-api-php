@@ -25,7 +25,7 @@ if (empty($email) || empty($password)){
             "status" => 1,
             "message" => "User logged in successfully",
             "userId" => (int)$row["userId"],
-            "name" => $row["name"],
+            "username" => $row["username"],
             "email" => $row["email"],
             "createdOn" => $row["createdOn"]
         );
